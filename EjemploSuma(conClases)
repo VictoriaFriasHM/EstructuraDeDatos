@@ -33,7 +33,7 @@ void Operaciones::CalcularSuma() {
 }
 
 Main de la Clase
-#include <iostream>}
+#include <iostream>
 #include "Operaciones.h"
 
 using namespace std; 
