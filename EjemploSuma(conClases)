@@ -1,0 +1,46 @@
+Cabecera de la Clase 
+#pragma once
+
+using namespace std;
+
+class Operaciones
+{
+	//Data
+private:
+	float a;
+	float b; 
+	float suma;
+
+	//Constructor
+public:
+	Operaciones(); 
+	void CalcularSuma(); 
+};
+
+Implementación de la Clase 
+#include "Operaciones.h"
+#include <iostream>
+
+using namespace std; 
+
+Operaciones::Operaciones() {
+	a = 4; 
+	b = 5.3; 
+}
+void Operaciones::CalcularSuma() {
+	suma = a + b; 
+	cout << "El resultado de la suma de A y B es: " << suma;
+}
+
+Main de la Clase
+#include <iostream>}
+#include "Operaciones.h"
+
+using namespace std; 
+
+int main()
+{
+    Operaciones Operacioncitas; 
+    Operacioncitas.CalcularSuma(); 
+    return 0; 
+}
