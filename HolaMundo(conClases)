@@ -1,0 +1,49 @@
+Cabecera de la Clase (.h)
+
+#pragma once
+#include <string> //para incluir librerías en POO
+
+using namespace std;
+
+class Mensaje
+{
+private: 
+	//Data
+	string mens; 
+public:
+	//Constructor (Se debe llamar igual que la clase) - Métodos (Funciones que necesito para trabajar)
+	Mensaje(); 
+	void mostrar();
+
+};
+
+
+Implementación de la Clase (.cpp)
+
+#include <iostream>
+#include "Mensaje.h"
+
+using namespace std; 
+
+//Constructor - Métodos (Funciones que necesito para trabajar)
+Mensaje::Mensaje() {
+	mens = "Soy Victoria Frias Muñoz"; 
+}
+void Mensaje::mostrar() {
+	cout << mens; 
+}
+
+Main del Programa (main)
+
+#include <iostream>
+#include "Mensaje.h"
+
+using namespace std; 
+
+int main()
+{
+    Mensaje mensajito; 
+    cout << "El mensaje es: ";
+    mensajito.mostrar();
+    return 0; 
+}
