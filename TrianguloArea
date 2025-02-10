@@ -1,0 +1,88 @@
+Cabecera de la Clase 
+
+#pragma once
+
+using namespace std; 
+
+class Triangulo
+{
+private:
+	float base;
+	float altura;
+
+public: //Métodos
+	Triangulo(); 
+
+	void set_altura(float _altura); 
+	void set_base(float _base);
+
+	float get_altura();
+	float get_base(); 
+
+	float area(); 
+
+};
+
+
+Implementación de la Clase
+
+#include "Triangulo.h"
+
+Triangulo::Triangulo() {
+
+}
+void Triangulo:: set_altura(float _altura){
+	altura = _altura;
+
+}
+void Triangulo::set_base(float _base){
+	base = _base;
+}
+
+float Triangulo::get_altura(){
+	return altura;
+}
+
+float Triangulo::get_base() {
+	return base; 
+}
+
+float Triangulo::area() {
+	return (base * altura) / 2;
+}
+
+
+Main de la Clase 
+
+#include <iostream>
+#include "Triangulo.h"
+
+using namespace std; 
+
+
+
+int main()
+{
+    float base, altura; 
+
+    do {
+        cout << "Por favor, ingrese la base: " << endl; 
+        cin >> base; 
+        if (base < 0)
+            cout << "Error. Por favor, ingresar de nuevo." << endl; 
+    } while (base < 0); 
+
+    do {
+        cout << "Por favor, ingrese la altura: " << endl;
+        cin >> altura;
+        if (altura < 0)
+            cout << "Error. Por favor, ingresar de nuevo." << endl; 
+    } while (altura < 0); 
+
+    Triangulo Triang; //Declarar el objeto utilizado en el programa.
+    Triang.set_altura(altura); //Se puede usar solo con void
+    Triang.set_base(base);
+    cout << "El área es: " << Triang.area();
+
+    return 0; 
+}
