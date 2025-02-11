@@ -1,0 +1,227 @@
+Cabecera de la Clase Rectangulo
+#pragma once
+
+using namespace std; 
+
+class Rectangulo {
+private:
+    double baseRectangulo;
+    double alturaRectangulo;
+
+public:
+    Rectangulo(); // Constructor por defecto
+    Rectangulo(double base, double altura); // Constructor con parámetros
+
+    void set_baseRectangulo(double _baseRectangulo);
+    void set_alturaRectangulo(double _alturaRectangulo);
+
+    double get_baseRectangulo();
+    double get_alturaRectangulo();
+
+    double areaRectangulo();
+};
+
+Cabecera de la Clase Paralelograma
+#pragma once
+
+using namespace std;
+
+class Paralelograma {
+private:
+    double baseParalelograma;
+    double alturaParalelograma;
+
+public:
+    Paralelograma(); // Constructor por defecto
+    Paralelograma(double base, double altura); // Constructor con parámetros
+
+    void set_baseParalelograma(double _baseParalelograma);
+    void set_alturaParalelograma(double _alturaParalelograma);
+
+    double get_baseParalelograma();
+    double get_alturaParalelograma();
+
+    double areaParalelograma();
+};
+
+Cabecera de la Clase Cuadrado
+#pragma once
+
+using namespace std; 
+
+class Cuadrado {
+private:
+    double lado;
+
+public:
+    Cuadrado(); // Constructor por defecto
+    Cuadrado(double _lado); // Constructor con parámetros
+
+    void set_lado(double _lado);
+    double get_lado();
+
+    double areaCuadrado();
+};
+
+Implementacion de la Clase Rectangulo
+#include "Rectangulo.h"
+
+Rectangulo::Rectangulo() : baseRectangulo(0), alturaRectangulo(0) {} // Inicialización en lista de miembros
+
+Rectangulo::Rectangulo(double base, double altura) : baseRectangulo(base), alturaRectangulo(altura) {} // Constructor con parámetros
+
+void Rectangulo::set_baseRectangulo(double _baseRectangulo) {
+    baseRectangulo = _baseRectangulo;
+}
+
+void Rectangulo::set_alturaRectangulo(double _alturaRectangulo) {
+    alturaRectangulo = _alturaRectangulo;
+}
+
+double Rectangulo::get_baseRectangulo() {
+    return baseRectangulo;
+}
+
+double Rectangulo::get_alturaRectangulo() {
+    return alturaRectangulo;
+}
+
+double Rectangulo::areaRectangulo() {
+    return baseRectangulo * alturaRectangulo;
+}
+
+Implementacion de la Clase Paralelograma
+#include "Paralelograma.h"
+
+Paralelograma::Paralelograma() : baseParalelograma(0), alturaParalelograma(0) {}
+
+Paralelograma::Paralelograma(double base, double altura) : baseParalelograma(base), alturaParalelograma(altura) {}
+
+void Paralelograma::set_baseParalelograma(double _baseParalelograma) {
+    baseParalelograma = _baseParalelograma;
+}
+
+void Paralelograma::set_alturaParalelograma(double _alturaParalelograma) {
+    alturaParalelograma = _alturaParalelograma;
+}
+
+double Paralelograma::get_baseParalelograma() {
+    return baseParalelograma;
+}
+
+double Paralelograma::get_alturaParalelograma() {
+    return alturaParalelograma;
+}
+
+double Paralelograma::areaParalelograma() {
+    return baseParalelograma * alturaParalelograma;
+}
+
+Implementacion de la Clase Cuadrado
+#include "Cuadrado.h"
+
+Cuadrado::Cuadrado() : lado(0) {}
+
+Cuadrado::Cuadrado(double _lado) : lado(_lado) {}
+
+void Cuadrado::set_lado(double _lado) {
+    lado = _lado;
+}
+
+double Cuadrado::get_lado() {
+    return lado;
+}
+
+double Cuadrado::areaCuadrado() {
+    return lado * lado;
+}
+
+Main de las Clases
+#include <iostream>
+#include "Rectangulo.h"
+#include "Paralelograma.h"
+#include "Cuadrado.h"
+
+using namespace std;
+
+int main() {
+    double baseRectangulo, alturaRectangulo, baseParalelograma, alturaParalelograma, lado;
+    int opcion;
+
+    // Declarar los objetos fuera del switch-case para evitar errores de alcance
+    Rectangulo rect;
+    Paralelograma par;
+    Cuadrado cuad;
+
+    do {
+        cout << "\nMenu de Figuras." << endl;
+        cout << "1. Calcular el area de un RECTANGULO." << endl;
+        cout << "2. Calcular el area de un PARALELOGRAMA." << endl;
+        cout << "3. Calcular el area de un CUADRADO." << endl;
+        cout << "0. Salir." << endl;
+        cout << "Por favor, ingresar la opcion que desee seleccionar: ";
+        cin >> opcion;
+
+        switch (opcion) {
+        case 1:
+            cout << "\nIngresar los valores del rectangulo." << endl;
+            do {
+                cout << "Base: ";
+                cin >> baseRectangulo;
+                if (baseRectangulo < 1) cout << "ERROR. Ingrese un valor mayor o igual a 1." << endl;
+            } while (baseRectangulo < 1);
+
+            do {
+                cout << "Altura: ";
+                cin >> alturaRectangulo;
+                if (alturaRectangulo < 1) cout << "ERROR. Ingrese un valor mayor o igual a 1." << endl;
+            } while (alturaRectangulo < 1);
+
+            rect.set_baseRectangulo(baseRectangulo);
+            rect.set_alturaRectangulo(alturaRectangulo);
+            cout << "El area del rectangulo es: " << rect.areaRectangulo() << endl;
+            break;
+
+        case 2:
+            cout << "\nIngresar los valores del paralelograma." << endl;
+            do {
+                cout << "Base: ";
+                cin >> baseParalelograma;
+                if (baseParalelograma < 1) cout << "ERROR. Ingrese un valor mayor o igual a 1." << endl;
+            } while (baseParalelograma < 1);
+
+            do {
+                cout << "Altura: ";
+                cin >> alturaParalelograma;
+                if (alturaParalelograma < 1) cout << "ERROR. Ingrese un valor mayor o igual a 1." << endl;
+            } while (alturaParalelograma < 1);
+
+            par.set_baseParalelograma(baseParalelograma);
+            par.set_alturaParalelograma(alturaParalelograma);
+            cout << "El area del paralelograma es: " << par.areaParalelograma() << endl;
+            break;
+
+        case 3:
+            cout << "\nIngresar el valor del lado del cuadrado." << endl;
+            do {
+                cout << "Lado: ";
+                cin >> lado;
+                if (lado < 1) cout << "ERROR. Ingrese un valor mayor o igual a 1." << endl;
+            } while (lado < 1);
+
+            cuad.set_lado(lado);
+            cout << "El area del cuadrado es: " << cuad.areaCuadrado() << endl;
+            break;
+
+        case 0:
+            cout << "Saliendo del programa..." << endl;
+            break;
+
+        default:
+            cout << "ERROR. Opción inválida, ingrese un número válido del menú." << endl;
+            break;
+        }
+    } while (opcion != 0);
+
+    return 0;
+}
